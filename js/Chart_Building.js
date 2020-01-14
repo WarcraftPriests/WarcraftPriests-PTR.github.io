@@ -58,6 +58,7 @@ const primary_azerite_traits = [
 'Fight or Flight',
 'Filthy Transfusion',
 'Glory in Battle',
+'Heart of Darkness',
 'Incite the Pack',
 'Laser Matrix',
 'Loyal to the End 4 Allies',
@@ -118,7 +119,10 @@ const major_essence_powers = [
 "Worldvein Resonance 3 Allies",
 "Worldvein Resonance 2 Allies",
 "Worldvein Resonance 1 Allies",
-"Worldvein Resonance 0 Allies"
+"Worldvein Resonance 0 Allies",
+"Replica of Knowledge",
+"Moment of Glory",
+"Reaping Flames"
 ]
 
 const minor_essnece_powers = [
@@ -136,7 +140,10 @@ const minor_essnece_powers = [
 "Lifeblood 3 Allies",
 "Lifeblood 2 Allies",
 "Lifeblood 1 Allies",
-"Lifeblood 0 Allies"
+"Lifeblood 0 Allies",
+"Symbiotic Presence",
+"Unified Strength",
+"Lethal Strikes"
 ]
 
 const potion_flask = [
