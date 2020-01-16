@@ -417,12 +417,13 @@ WCP_Chart.prototype.updateTrinketChart = function(chartName) {
       for (sortedData of dpsSortedData) {
         var keys = [];
         for (var k in data["data"][sortedData]) keys.push(k); //Pull all item levels of the trinket.
+        let ilvldifference = keys[1] - keys[0];
         let minItemLevel = keys[0];
         sortedData = sortedData.trim();
         let dps = data["data"][sortedData][currIlevel];
         let baselineDPS = data["data"]["Base"]["300"];
         //Check to make sure DPS isn't 0
-        if (dps > 0) {
+        if (dps >= 0) {
           if (currIlevel == minItemLevel) {
             //If lowest ilvl is looked at, subtract base DPS
             if (dps - baselineDPS < 0) {
@@ -431,10 +432,10 @@ WCP_Chart.prototype.updateTrinketChart = function(chartName) {
               itemLevelDpsValues.push(dps - baselineDPS);
             }
           } else {
-            if (dps - data["data"][sortedData][currIlevel - 5] < 0) {
+            if (dps - data["data"][sortedData][currIlevel - ilvldifference] < 0) {
               itemLevelDpsValues.push(0);
             } else {
-              itemLevelDpsValues.push(dps - data["data"][sortedData][currIlevel - 5]);
+              itemLevelDpsValues.push(dps - data["data"][sortedData][currIlevel - ilvldifference]);
             }
           }
         } else {
@@ -444,10 +445,8 @@ WCP_Chart.prototype.updateTrinketChart = function(chartName) {
             itemLevelDpsValues.push(0);
           }
         }
-        if(sortedData === "Psyche Shredder")
-        {
-          console.log("Trinket: ", sortedData, "Ilvl: ", currIlevel, "DPS: ", dps);
-        }
+        
+
       }
       //this.chart.yAxis[0].update({categories: dpsSortedData});
       this.chart.addSeries({
